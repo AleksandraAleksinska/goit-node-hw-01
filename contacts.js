@@ -4,8 +4,6 @@ const { nanoid } = require('nanoid');
 
 const contactsPath = path.join(__dirname, 'db/contacts.json')
 
-
-// TODO: udokumentuj każdą funkcję
 function listContacts() {
     fs.readFile(contactsPath, (err, data) => {
         if (err) {
