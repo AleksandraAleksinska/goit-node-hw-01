@@ -41,11 +41,13 @@ function removeContact(contactId) {
         const index = contacts.findIndex((contact) => contact.id === contactId);
 
         if (index !== -1) {
+            const contactToRemove = contacts.splice(index, 1)
             contacts.splice(index, 1);
+            console.table(contactToRemove);
             fs.writeFile(contactsPath, JSON.stringify(contacts), (err) => {
                 if (err) {
                     console.log('Error:', err);
-                } else {
+                } else {                    
                     console.log('Contact removed successfully.');
                 }
             });
@@ -75,6 +77,7 @@ function addContact(name, email, phone) {
             if (err) {
                 console.log('Error:', err);
             } else {
+                console.table(contactToAdd);
                 console.log('Contact added successfully.');
             }
         });
